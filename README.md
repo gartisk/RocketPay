@@ -40,9 +40,15 @@ Rocketpay.User.changeset(%{name: "Guilherme", password: "123456", email: "guilhe
 
 #### Para inserir o usuário no banco
 ```
-%{name: "Guilherme", password: "guilherme@email.com", email: "guilherme@email.com", nickname: "guilherme", age: 32}
+%{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}
 |> Rocketpay.User.changeset()
-|> Rocketpay.Repo.insert
+|> Rocketpay.Repo.insert()
+```
+
+ou
+```
+%{name: "Guilherme2", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}
+|> Rocketpay.create_user()
 ```
 
 #### Outros
