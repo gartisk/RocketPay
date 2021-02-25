@@ -18,6 +18,13 @@ config :rocketpay, RocketpayWeb.Endpoint,
   pubsub_server: Rocketpay.PubSub,
   live_view: [signing_salt: "7fwFzqq8"]
 
+# Info:
+# Dessa forma configuramos o ecto para que todas as migrations que ele criar
+# deverá usar chave do tipo binary_id
+config :rocketpay, Rocketpay.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
