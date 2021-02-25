@@ -51,6 +51,15 @@ ou
 |> Rocketpay.create_user()
 ```
 
+### Teste de API
+
+```
+curl --header "Content-Type: application/json" \
+--request POST \
+--data '{"name": "Guilherme3", "password": "123456", "email": "guilherme3@email.com", "nickname": "guilherme3", "age": 32}' \
+http://localhost:4000/api/users
+```
+
 #### Outros
 
 Testes de Bcrypt
