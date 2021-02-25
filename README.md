@@ -1,18 +1,57 @@
 # Rocketpay
 
+Para encontrar dicas busque por "Info"
+
+### Para baixar dependencias do projeto
+```
+mix deps.get
+```
+
 ### Criação de Banco
 
-```mix ecto.create```
+```
+mix ecto.create
+```
+
+### Remove Banco
+```
+mix ecto.drop
+```
+
+### Rodar Migrations
+```
+mix ecto.migration
+```
 
 ### Criação de Migration
 
-```mix ecto.gen.migration create_user_table```
+```
+mix ecto.gen.migration create_user_table
+```
 
 
+### COMANDOS TESTE NO CONSOLE
 
+#### Criação de novo usuário
 
+```
+Rocketpay.User.changeset(%{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}) 
+```
 
+#### Para inserir o usuário no banco
+```
+%{name: "Guilherme", password: "guilherme@email.com", email: "guilherme@email.com", nickname: "guilherme", age: 32}
+|> Rocketpay.User.changeset()
+|> Rocketpay.Repo.insert
+```
 
+#### Outros
+
+Testes de Bcrypt
+
+```
+Bcrypt.add_hash("123456")
+```
 
 To start your Phoenix server:
 
