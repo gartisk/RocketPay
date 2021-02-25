@@ -1,5 +1,19 @@
 # Rocketpay
 
+### Criação de Banco
+
+```mix ecto.create```
+
+### Criação de Migration
+
+```mix ecto.gen.migration create_user_table```
+
+
+
+
+
+
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
