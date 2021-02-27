@@ -8,7 +8,6 @@ mix deps.get
 ```
 
 ### Criação de Banco
-
 ```
 mix ecto.create
 ```
@@ -20,20 +19,22 @@ mix ecto.drop
 
 ### Rodar Migrations
 ```
-mix ecto.migration
+mix ecto.migrate
+```
+
+### Par visualizar Migrations
+```
+mix ecto.migrations
 ```
 
 ### Criação de Migration
-
 ```
 mix ecto.gen.migration create_user_table
 ```
 
-
 ### COMANDOS TESTE NO CONSOLE
 
 #### Criação de novo usuário
-
 ```
 Rocketpay.User.changeset(%{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}) 
 ```
@@ -41,6 +42,11 @@ Rocketpay.User.changeset(%{name: "Guilherme", password: "123456", email: "guilhe
 #### Buscar todos os usuários
 ```
 Rocketpay.Repo.all(Rocketpay.User)
+```
+
+#### Buscar todos usuários e suas respectivas contas
+```
+Rocketpay.Repo.all(Rocketpay.User) |> Rocketpay.Repo.preload(:account)
 ```
 
 #### Para inserir o usuário no banco
@@ -76,6 +82,11 @@ Bcrypt.add_hash("123456")
 Para ver documentação de uma função no console utilize `h`:
 ```
 h Rocketpay.Repo.all
+```
+
+Inserir saldo conta manualmente:
+```
+%{user_id: "762950f3-ea57-41a6-9a02-fa82535bee71", balance: "0.00"} |> Rocketpay.Account.changeset() |> Rocketpay.Repo.insert()
 ```
 
 To start your Phoenix server:
