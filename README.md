@@ -38,6 +38,11 @@ mix ecto.gen.migration create_user_table
 Rocketpay.User.changeset(%{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}) 
 ```
 
+#### Buscar todos os usuários
+```
+Rocketpay.Repo.all(Rocketpay.User)
+```
+
 #### Para inserir o usuário no banco
 ```
 %{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}
@@ -66,6 +71,11 @@ Testes de Bcrypt
 
 ```
 Bcrypt.add_hash("123456")
+```
+
+Para ver documentação de uma função no console utilize `h`:
+```
+h Rocketpay.Repo.all
 ```
 
 To start your Phoenix server:
