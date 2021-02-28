@@ -49,14 +49,14 @@ Rocketpay.Repo.all(Rocketpay.User)
 Rocketpay.Repo.all(Rocketpay.User) |> Rocketpay.Repo.preload(:account)
 ```
 
-#### Para inserir o usuário no banco
+#### Para inserir o usuário
 ```
 %{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}
 |> Rocketpay.User.changeset()
 |> Rocketpay.Repo.insert()
 ```
 
-ou
+#### Para inserir usuário e conta
 ```
 %{name: "Guilherme2", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}
 |> Rocketpay.create_user()
