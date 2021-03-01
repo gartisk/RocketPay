@@ -49,6 +49,12 @@ Rocketpay.Repo.all(Rocketpay.User)
 Rocketpay.Repo.all(Rocketpay.User) |> Rocketpay.Repo.preload(:account)
 ```
 
+#### Depositar na conta do usuário
+Lembrar que este "id" é da Account
+```
+Rocketpay.deposit(%{"id" => "e435373d-f1e6-48f7-9ca4-47d1cb436867", "value" => "50.0"})
+```
+
 #### Para inserir o usuário
 ```
 %{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}
