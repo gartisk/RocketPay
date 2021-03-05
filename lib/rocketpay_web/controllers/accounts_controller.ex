@@ -9,7 +9,7 @@ defmodule RocketpayWeb.AccountsController do
     with {:ok, %Account{} = account} <- Rocketpay.deposit(params) do
       conn
       |> put_status(:ok)
-      |> render("update.json", account: account)   # Info: Controller é experto suficiente para buscar a view com mesmo prefixo deste controller.
+      |> render("update.json", account: account)        # Info: Controller é experto suficiente para buscar a view com mesmo prefixo deste controller.
     end
   end
 
