@@ -76,6 +76,8 @@ curl --header "Content-Type: application/json" \
 --data '{"name": "Guilherme3", "password": "123456", "email": "guilherme3@email.com", "nickname": "guilherme3", "age": 32}' \
 http://localhost:4000/api/users
 ```
+
+Adicionar valores na conta do usuário
 ```sh
 curl --header "Content-Type: application/json" \
 --request POST \
@@ -83,6 +85,13 @@ curl --header "Content-Type: application/json" \
 http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/deposit
 ```
 
+Remover valores da conta do usuário
+```sh
+curl --header "Content-Type: application/json" \
+--request POST \
+--data '{"value": "50"}' \
+http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/withdraw
+```
 
 #### Outros
 
@@ -97,10 +106,13 @@ Para ver documentação de uma função no console utilize `h`:
 h Rocketpay.Repo.all
 ```
 
-Inserir saldo conta manualmente:
+Adicionar saldo conta manualmente:
 ```
 %{user_id: "762950f3-ea57-41a6-9a02-fa82535bee71", balance: "0.00"} |> Rocketpay.Account.changeset() |> Rocketpay.Repo.insert()
 ```
+
+--------------------------------
+
 
 To start your Phoenix server:
 
