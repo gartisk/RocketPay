@@ -90,12 +90,21 @@ curl --header "Content-Type: application/json" \
 http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/deposit
 ```
 
-Remover valores da conta do usuário
+Sacar valores da conta do usuário
 ```sh
 curl --header "Content-Type: application/json" \
 --request POST \
 --data '{"value": "50"}' \
 http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/withdraw
+```
+
+Transferir valores entre contas
+Sacar valores da conta do usuário
+```sh
+curl --header "Content-Type: application/json" \
+--request POST \
+--data '{"value": "3.33", "from": "e435373d-f1e6-48f7-9ca4-47d1cb436867", "to": "f05016e9-06cf-4a4a-84d6-c04b5475e04f"}' \
+http://localhost:4000/api/accounts/transaction
 ```
  
 #### Outros
