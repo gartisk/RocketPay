@@ -68,6 +68,11 @@ Rocketpay.deposit(%{"id" => "e435373d-f1e6-48f7-9ca4-47d1cb436867", "value" => "
 |> Rocketpay.create_user()
 ```
 
+#### Transferencia entre contas
+```elixir
+Rocketpay.Accounts.Transaction.call(%{ "from" => "e435373d-f1e6-48f7-9ca4-47d1cb436867", "to" => "f05016e9-06cf-4a4a-84d6-c04b5475e04f", "value" => "1"})
+```
+
 ### Teste de API
 Criação de usuário
 ```sh
@@ -92,22 +97,22 @@ curl --header "Content-Type: application/json" \
 --data '{"value": "50"}' \
 http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/withdraw
 ```
-
+ 
 #### Outros
 
 Testes de Bcrypt
 
-```
+```elixir
 Bcrypt.add_hash("123456")
 ```
 
 Para ver documentação de uma função no console utilize `h`:
-```
+```elixir
 h Rocketpay.Repo.all
 ```
 
 Adicionar saldo conta manualmente:
-```
+```elixir
 %{user_id: "762950f3-ea57-41a6-9a02-fa82535bee71", balance: "0.00"} |> Rocketpay.Account.changeset() |> Rocketpay.Repo.insert()
 ```
 
