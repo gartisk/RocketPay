@@ -79,7 +79,8 @@ Criação de usuário
 curl --header "Content-Type: application/json" \
 --request POST \
 --data '{"name": "Guilherme3", "password": "123456", "email": "guilherme3@email.com", "nickname": "guilherme3", "age": 32}' \
-http://localhost:4000/api/users
+http://localhost:4000/api/users \
+-u "banana:nanica123"
 ```
 
 Adicionar valores na conta do usuário
@@ -87,7 +88,8 @@ Adicionar valores na conta do usuário
 curl --header "Content-Type: application/json" \
 --request POST \
 --data '{"value": "50"}' \
-http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/deposit
+http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/deposit \
+-u "banana:nanica123"
 ```
 
 Sacar valores da conta do usuário
@@ -95,7 +97,8 @@ Sacar valores da conta do usuário
 curl --header "Content-Type: application/json" \
 --request POST \
 --data '{"value": "50"}' \
-http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/withdraw
+http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/withdraw \
+-u "banana:nanica123"
 ```
 
 Transferir valores entre contas
@@ -104,7 +107,8 @@ Sacar valores da conta do usuário
 curl --header "Content-Type: application/json" \
 --request POST \
 --data '{"value": "3.33", "from": "e435373d-f1e6-48f7-9ca4-47d1cb436867", "to": "f05016e9-06cf-4a4a-84d6-c04b5475e04f"}' \
-http://localhost:4000/api/accounts/transaction
+http://localhost:4000/api/accounts/transaction \
+-u "banana:nanica123"
 ```
  
 #### Outros
@@ -126,7 +130,6 @@ Adicionar saldo conta manualmente:
 ```
 
 --------------------------------
-
 
 To start your Phoenix server:
 
