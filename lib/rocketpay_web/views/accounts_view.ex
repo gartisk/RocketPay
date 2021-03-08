@@ -17,7 +17,7 @@ defmodule RocketpayWeb.AccountsView do
     }) do
     %{
       message: "Transaction done successfully",
-      transactiron: %{
+      transaction: %{
         from_account: %{
           id: from_account.id,
           balance: from_account.balance
