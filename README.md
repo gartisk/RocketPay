@@ -110,6 +110,13 @@ curl --header "Content-Type: application/json" \
 http://localhost:4000/api/accounts/transaction \
 -u "banana:nanica123"
 ```
+
+### Cobertura de testes
+
+Para saber percentual de cobetura de testes:
+```sh
+mix test --cover
+```
  
 #### Outros
 
