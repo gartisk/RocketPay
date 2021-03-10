@@ -73,6 +73,16 @@ Rocketpay.Accounts.Transaction.call(%{ "from" => "e435373d-f1e6-48f7-9ca4-47d1cb
 |> Rocketpay.Repo.insert()
 ```
 
+#### Outros
+
+```elixir
+# Testes de Bcrypt
+Bcrypt.add_hash("123456")
+
+# Para ver documentação de uma função no console utilize `h`:
+h Rocketpay.Repo.all
+```
+
 ## Comandos da API
 
 #### Criar Usuário
@@ -111,18 +121,8 @@ http://localhost:4000/api/accounts/transaction \
 -u "banana:nanica123"
 ```
 
-## Outros
-
-```elixir
-# Testes de Bcrypt
-Bcrypt.add_hash("123456")
-
-# Para ver documentação de uma função no console utilize `h`:
-h Rocketpay.Repo.all
-```
-
 --------------------------------
-### Padrão
+### Readme Autogerado
 
 To start your Phoenix server:
 
