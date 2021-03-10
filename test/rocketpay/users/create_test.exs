@@ -1,7 +1,7 @@
 defmodule Rocketpay.Users.CreateTest do
   # Info: Datacase configura o banco para teste e permite usar o errors_on
   # A função de usar banco em modo teste é boa pois, ao final da bateria os dados no banco voltam ao estado inicial.
-  use Rocketpay.DataCase
+  use Rocketpay.DataCase, async: true
 
   alias Rocketpay.User
   alias Rocketpay.Users.Create

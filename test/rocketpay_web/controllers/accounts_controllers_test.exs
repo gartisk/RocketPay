@@ -1,5 +1,7 @@
 defmodule RocketpayWeb.AccountsControllerTest do
-  use RocketpayWeb.ConnCase
+  # Info: async: true: Habilitação de testes em paralelo
+  # Atenção: para alguns casos que possuem acesso concorrente a algum dado.
+  use RocketpayWeb.ConnCase, async: true
 
   alias Rocketpay.{Account, User}
 
