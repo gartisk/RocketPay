@@ -1,80 +1,81 @@
 # Rocketpay
+Exercicios da #NWL4 da Rocketseat.
 
-Para encontrar dicas busque por "Info"
+Recursos:
+- Criação de usuário
+- Criação de conta
+- Depósito de saldo
+- Saque de saldo
+- Transfência de valores entre contas.
 
-### Para baixar dependencias do projeto
+Tecnologias:
+- Aplicação Elixir + Phoenix + Ecto.
+- Outras libs: credo, bcrypt_elixir, decimal e excoveralls.
+
+Para encontrar anotações úteis no código busque pela palavra "Info" no projeto.
+
+## Comandos Mix Úteis
+
 ```sh
+# Para baixar dependencias do projeto
 mix deps.get
-```
 
-### Criação de Banco
-```sh
+# Criar Banco
 mix ecto.create
-```
 
-### Remove Banco
-```sh
+# Remover Banco
 mix ecto.drop
-```
 
-### Rodar Migrations
-```sh
+# Executar Migrations
 mix ecto.migrate
-```
 
-### Par visualizar Migrations
-```sh
+# Visualizar Migrations
 mix ecto.migrations
-```
 
-### Criação de Migration
-```sh
+# Criar Nova Migration
 mix ecto.gen.migration create_user_table
+
+# Para saber percentual de cobetura de testes
+mix test --cover
 ```
 
-### COMANDOS TESTE NO CONSOLE
+## Comandos IEX Úteis
 
-#### Criação de novo usuário
 ```elixir
+# Criar novo usuário
 Rocketpay.User.changeset(%{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}) 
-```
 
-#### Buscar todos os usuários
-```elixir
+# Buscar todos os usuários
 Rocketpay.Repo.all(Rocketpay.User)
-```
 
-#### Buscar todos usuários e suas respectivas contas
-```elixir
+# Buscar todos usuários e suas respectivas contas
 Rocketpay.Repo.all(Rocketpay.User) |> Rocketpay.Repo.preload(:account)
-```
 
-#### Depositar na conta do usuário
-Lembrar que este "id" é da Account
-```elixir
+# Depositar na conta do usuário
+# - Lembrar que este "id" é da Account
 Rocketpay.deposit(%{"id" => "e435373d-f1e6-48f7-9ca4-47d1cb436867", "value" => "50.0"})
-```
 
-#### Para inserir o usuário
-```elixir
+# Inserir o usuário
 %{name: "Guilherme", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}
 |> Rocketpay.User.changeset()
 |> Rocketpay.Repo.insert()
-```
 
-#### Para inserir usuário e conta
-```elixir
+# inserir usuário e conta
 %{name: "Guilherme2", password: "123456", email: "guilherme@email.com", nickname: "guilherme", age: 32}
 |> Rocketpay.create_user()
-```
 
-#### Transferencia entre contas
-```elixir
+# Transferencia entre contas
 Rocketpay.Accounts.Transaction.call(%{ "from" => "e435373d-f1e6-48f7-9ca4-47d1cb436867", "to" => "f05016e9-06cf-4a4a-84d6-c04b5475e04f", "value" => "1"})
+
+# Adicionar saldo conta manualmente
+%{user_id: "762950f3-ea57-41a6-9a02-fa82535bee71", balance: "50.00"}
+|> Rocketpay.Account.changeset()
+|> Rocketpay.Repo.insert()
 ```
 
-### Teste de API
-Criação de usuário
+## Comandos da API
+
+#### Criar Usuário
 ```sh
 curl --header "Content-Type: application/json" \
 --request POST \
@@ -83,7 +84,7 @@ http://localhost:4000/api/users \
 -u "banana:nanica123"
 ```
 
-Adicionar valores na conta do usuário
+#### Adicionar saldo na conta
 ```sh
 curl --header "Content-Type: application/json" \
 --request POST \
@@ -92,7 +93,7 @@ http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/deposit 
 -u "banana:nanica123"
 ```
 
-Sacar valores da conta do usuário
+#### Sacar valor da conta do usuário
 ```sh
 curl --header "Content-Type: application/json" \
 --request POST \
@@ -101,8 +102,7 @@ http://localhost:4000/api/accounts/e435373d-f1e6-48f7-9ca4-47d1cb436867/withdraw
 -u "banana:nanica123"
 ```
 
-Transferir valores entre contas
-Sacar valores da conta do usuário
+#### Transferir valores entre contas
 ```sh
 curl --header "Content-Type: application/json" \
 --request POST \
@@ -111,32 +111,18 @@ http://localhost:4000/api/accounts/transaction \
 -u "banana:nanica123"
 ```
 
-### Cobertura de testes
-
-Para saber percentual de cobetura de testes:
-```sh
-mix test --cover
-```
- 
-#### Outros
-
-Testes de Bcrypt
+## Outros
 
 ```elixir
+# Testes de Bcrypt
 Bcrypt.add_hash("123456")
-```
 
-Para ver documentação de uma função no console utilize `h`:
-```elixir
+# Para ver documentação de uma função no console utilize `h`:
 h Rocketpay.Repo.all
 ```
 
-Adicionar saldo conta manualmente:
-```elixir
-%{user_id: "762950f3-ea57-41a6-9a02-fa82535bee71", balance: "0.00"} |> Rocketpay.Account.changeset() |> Rocketpay.Repo.insert()
-```
-
 --------------------------------
+### Padrão
 
 To start your Phoenix server:
 
