@@ -121,6 +121,8 @@ http://localhost:4000/api/accounts/transaction \
 -u "banana:nanica123"
 ```
 
+![demonstração](/images/Rocketpay.png)
+
 --------------------------------
 ### Readme Autogerado
 
