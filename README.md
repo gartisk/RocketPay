@@ -1,5 +1,5 @@
 # Rocketpay
-Exercicios da #NWL4 da Rocketseat.
+Aplicação demo de pagamentos da #NLW4 da Rocketseat.
 
 Recursos:
 - Criação de usuário
